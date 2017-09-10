@@ -2,11 +2,8 @@
 import math
 import pandas as pd
 import numpy as np
-#import matplotlib
 import matplotlib.pyplot as plt
-#import matplotlib.ticker as plticker
 from matplotlib.ticker import FuncFormatter
-#import matplotlib.dates as dates
 import matplotlib.dates as mdates
 from datetime import datetime
 
