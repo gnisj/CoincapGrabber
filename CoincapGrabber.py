@@ -8,14 +8,14 @@ import matplotlib.dates as mdates
 from datetime import datetime
 
 # Toggle runtime warnings
-warnings_on = False
+warnings_on = True
 
 # Todays datetime
 now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
 # Enter your coin tickers and time masks here:
 tickermasks = {
-    'BTC'   : ['2014-01-01 00:00:00', str(now)],
+    'BTC'   : ['2017-09-01 00:00:00', str(now)],
     'ETH'   : ['2017-01-01 00:00:00', str(now)],
     'BTS'   : ['2017-08-30 00:00:00', str(now)],
     'STEEM' : ['2017-08-21 00:00:00', str(now)]}
@@ -30,10 +30,10 @@ marketcap = {}
 volume = {}
 price = {}
 
-
 fig, axes = plt.subplots(len(my_tickers), figsize=(8,12))
 fig.subplots_adjust(hspace=0.5)
 
+# Check out http://socket.coincap.io/BTC for more "live" data
 # Create dataframes for all tickers in my_tickers
 for ticker in my_tickers:
     
@@ -99,9 +99,9 @@ for ticker in my_tickers:
             return '$%1.0fm' % (value*1e3)
         elif 0.1 <= value < 10:
             return '$%1.2f' % (value)
-        elif 10 <= value < 1e3:
-            return '$%1.0f' % (value) 
-        elif 1e3 <= value < 1e6:
+        elif 10 <= value < 1e4:
+            return '$%1.0f' % (value)
+        elif 1e4 <= value < 1e6:
             return '$%1.0fk' % (value*1e-3)
         elif 1e6 <= value < 1e9:
             return '$%1.0fM' % (value*1e-6)
